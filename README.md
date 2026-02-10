@@ -1,0 +1,2 @@
+# wolof-Dictionnaire
+wolof dictionnary
