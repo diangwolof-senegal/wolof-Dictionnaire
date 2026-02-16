@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="wo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diangum Wolof - Jàngal Wolof ci Diggante</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-primary: #2D6A4F;
+            --green-light: #40916C;
+            --green-dark: #1B4332;
+            --gold: #D4AF37;
+            --cream: #FFF8E7;
+            --white: #FFFFFF;
+            --text-dark: #1a1a1a;
+            --shadow: rgba(29, 106, 79, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #f5f5f5 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--green-primary);
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav .logo {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Language Selector */
+        .lang-selector {
+            display: flex;
+            gap: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .lang-btn {
+            color: var(--white);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            transition: background 0.3s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--gold);
+            color: var(--green-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--green-primary) 0%, var(--green-light) 100%);
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Amiri', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .hero .subtitle {
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        /* Sections */
+        .section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            color: var(--green-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        /* Libraries Grid */
+        .libraries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .library-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s;
+            border-top: 5px solid var(--green-primary);
+        }
+
+        .library-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow);
+            border-top-color: var(--gold);
+        }
+
+        .library-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .library-card h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: var(--green-primary);
+            margin-bottom: 1rem;
+        }
+
+        .library-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .library-card .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--green-primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .library-card .btn:hover {
+            background: var(--gold);
+            color: var(--green-dark);
+        }
+
+        /* Dictionary Preview */
+        .dictionary-preview {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px var(--shadow);
+            margin-bottom: 4rem;
+        }
+
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .word-card {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .word-card:hover {
+            border-color: var(--green-primary);
+            transform: scale(1.05);
+        }
+
+        .word-card .wolof {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--green-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .word-card .meaning {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Contribution Section */
+        .contribution-box {
+            background: linear-gradient(135deg, var(--green-light) 0%, var(--green-primary) 100%);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .contribution-box h2 {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contribution-box p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .contribution-box .btn-large {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--gold);
+            color: var(--green-dark);
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .contribution-box .btn-large:hover {
+            background: var(--white);
+            transform: scale(1.05);
+        }
+
+        /* Ad Space Placeholder */
+        .ad-space {
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            color: #999;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--green-dark);
+            color: var(--white);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Amiri', serif;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav .nav-links {
+                display: none;
+            }
+
+            .libraries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .word-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">ديانگوم ولوف</a>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#dictionnaire">Dictionnaire</a></li>
+                <li><a href="#bibliotheques">Bibliothèques</a></li>
+                <li><a href="#contribuer">Contribuer</a></li>
+            </ul>
+            <div class="lang-selector">
+                <button class="lang-btn active">Wolof</button>
+                <button class="lang-btn">Français</button>
+                <button class="lang-btn">English</button>
+                <button class="lang-btn">العربية</button>
+                <button class="lang-btn">عجمي</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h1>Diangum Wolof</h1>
+            <p>Jàngal Wolof ci Diggante</p>
+            <p class="subtitle">La souveraineté linguistique commence ici</p>
+        </div>
+    </section>
+
+    <!-- Ad Space 1 -->
+    <div class="section">
+        <div class="ad-space">
+            [ESPACE PUBLICITAIRE 1 - 728x90]
+        </div>
+    </div>
+
+    <!-- Libraries Section -->
+    <section class="section" id="bibliotheques">
+        <h2 class="section-title">Bibliothèques Saba Studio</h2>
+        <p class="section-subtitle">Accédez à nos 4 bibliothèques de connaissances</p>
+
+        <div class="libraries-grid">
+            <!-- Bibliothèque Panafricaine -->
+            <div class="library-card">
+                <div class="icon">🌍</div>
+                <h3>Bibliothèque Panafricaine</h3>
+                <p>Renaissance africaine, géopolitique continentale, et vision d'unité. Documents stratégiques pour l'Afrique.</p>
+                <a href="#" class="btn">Explorer</a>
+            </div>
+
+            <!-- Bibliothèque PASTEF -->
+            <div class="library-card">
+                <div class="icon">🇸🇳</div>
+                <h3>Bibliothèque PASTEF</h3>
+                <p>Le Projet politique, analyses, discours et documentation du mouvement patriotique sénégalais.</p>
+                <a href="hub-pastef-index.html" class="btn">Explorer</a>
+            </div>
+
+            <!-- Bibliothèque Jàng Wolof -->
+            <div class="library-card">
+                <div class="icon">📚</div>
+                <h3>Bibliothèque Jàng Wolof</h3>
+                <p>Livres, manuels et ressources pédagogiques pour l'apprentissage et la maîtrise du Wolof.</p>
+                <a href="#" class="btn">Explorer</a>
+            </div>
+
+            <!-- Bibliothèque Médecine Traditionnelle -->
+            <div class="library-card">
+                <div class="icon">🌿</div>
+                <h3>Bibliothèque Médecine Traditionnelle</h3>
+                <p>Toulkouna, plantes médicinales, et médecine traductionnelle. Savoirs ancestraux documentés.</p>
+                <a href="#" class="btn">Explorer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Space 2 -->
+    <div class="section">
+        <div class="ad-space">
+            [ESPACE PUBLICITAIRE 2 - 728x90]
+        </div>
+    </div>
+
+    <!-- Dictionary Preview -->
+    <section class="section" id="dictionnaire">
+        <div class="dictionary-preview">
+            <h2 class="section-title">Bou Mag Bi - Le Dictionnaire</h2>
+            <p class="section-subtitle">100 radicaux validés → 1000+ mots générés par morphologie</p>
+
+            <div class="word-grid">
+                <div class="word-card" onclick="window.location.href='mot-aal.html'">
+                    <div class="wolof">Aal</div>
+                    <div class="meaning">Forêt</div>
+                </div>
+                <div class="word-card">
+                    <div class="wolof">Agg</div>
+                    <div class="meaning">Arriver</div>
+                </div>
+                <div class="word-card">
+                    <div class="wolof">Jub</div>
+                    <div class="meaning">Être droit</div>
+                </div>
+                <div class="word-card">
+                    <div class="wolof">Bokk</div>
+                    <div class="meaning">Partager</div>
+                </div>
+                <div class="word-card">
+                    <div class="wolof">Dem</div>
+                    <div class="meaning">Aller</div>
+                </div>
+                <div class="word-card">
+                    <div class="wolof">Dëkk</div>
+                    <div class="meaning">Habiter</div>
+                </div>
+                <div class="word-card">
+                    <div class="wolof">Jàng</div>
+                    <div class="meaning">Apprendre</div>
+                </div>
+                <div class="word-card">
+                    <div class="wolof">Wax</div>
+                    <div class="meaning">Parler</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contribution Section -->
+    <section class="section" id="contribuer">
+        <div class="contribution-box">
+            <h2>Waññi ci Liggéey bi!</h2>
+            <p>Contribue au dictionnaire en proposant des mots, en validant des définitions, ou en partageant tes connaissances</p>
+            <a href="contribution.html" class="btn-large">Proposer un Mot</a>
+        </div>
+    </section>
+
+    <!-- Ad Space 3 -->
+    <div class="section">
+        <div class="ad-space">
+            [ESPACE PUBLICITAIRE 3 - 300x250]
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Diangum Wolof</h4>
+                <p>La souveraineté linguistique du peuple wolof</p>
+            </div>
+            <div class="footer-section">
+                <h4>Bibliothèques</h4>
+                <ul>
+                    <li><a href="#">Panafricaine</a></li>
+                    <li><a href="hub-pastef-index.html">PASTEF</a></li>
+                    <li><a href="#">Jàng Wolof</a></li>
+                    <li><a href="#">Médecine Traditionnelle</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Ressources</h4>
+                <ul>
+                    <li><a href="#">Dictionnaire</a></li>
+                    <li><a href="#">Grammaire</a></li>
+                    <li><a href="#">Morphologie</a></li>
+                    <li><a href="#">Ajami</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Email: diangwolof@gmail.com</li>
+                    <li>Dakar, Sénégal</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Diangum Wolof - Saba Studio | Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language selector functionality
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
